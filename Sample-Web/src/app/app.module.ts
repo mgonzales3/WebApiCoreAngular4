@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
+
 // app framework
 import { routes, routingProviders } from './app.routing';
 import { AppComponent } from './components/application/app.component';
@@ -24,7 +25,7 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     HttpModule,
     RouterModule,
-    routes
+    routes    
   ],
   providers: [ Sample_Services,
     {
