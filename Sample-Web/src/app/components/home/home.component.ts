@@ -4,11 +4,11 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-home',
   template: `
-       <h2>Home</h2>
-       <div class="row" >
-            <img src="../../../assets/exercise.png" 
+       <div style="padding-bottom:70px;"></div>
+       <div class="row" >            
+            <img src="../../../assets/images/exercise.png" 
                  class="img-responsive left-block"
-                 style="max-height:500px;padding-bottom:50px"/>
+                 style="max-height:500px;padding-bottom:20px"/>
         </div>
        `,
   styleUrls: ['./home.component.css']

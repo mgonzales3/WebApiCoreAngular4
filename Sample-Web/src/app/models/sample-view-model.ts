@@ -1,5 +1,4 @@
-export class SampleModelView {
-
+export class SampleViewModel {
     ID: number;
     Barcode: string;
     CreatedAt: string;

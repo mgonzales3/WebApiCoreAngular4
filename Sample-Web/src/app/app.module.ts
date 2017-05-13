@@ -14,11 +14,13 @@ import { AppComponent } from './components/application/app.component';
 // app components
 import { Sample_Services } from './services/services';
 import { HomeComponent } from './components/home/home.component';
+import { SampleComponent } from './components/sample/sample.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SampleComponent
   ],
   imports: [
     BrowserModule,

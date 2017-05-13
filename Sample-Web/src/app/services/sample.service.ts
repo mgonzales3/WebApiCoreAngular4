@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { SampleModelView } from '../models/sample-model-view';
+import { SampleViewModel } from '../models/sample-view-model';
 
 @Injectable()
 export class SampleService {
@@ -13,7 +13,7 @@ export class SampleService {
 
   constructor(private http: Http) { }
 
-  getSamples(): Observable<SampleModelView[]> {
+  getSamples(): Observable<SampleViewModel[]> {
     return this.http.get(this.url + 'samples')
     .map((resp: Response) => resp.json())
     .catch(this.handleError);
