@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SampleViewModel } from '../../models/sample-view-model';
-import { SampleService  } from '../../services/sample.service';
+import { SampleService } from '../../services/sample.service';
+//import { SampleFilterPipe } from './sample-filter-pipe.pipe';
 
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/debounceTime';
@@ -14,13 +15,28 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class SampleComponent implements OnInit {
   pageTitle: string = "Samples Report By Status";
-    errorMessage: string;    
-    samples: SampleViewModel[] = [];
-    subscription: Subscription;
+  errorMessage: string;  
+  dnasamples: Array<SampleViewModel>;
+  subscription: Subscription;
+  listFilter: any;
+  webapiFilter: any;
 
-  constructor(private _svc: SampleService) { }
+  constructor(private _svc: SampleService) {
+    
+   }
 
   ngOnInit() {
+    
+    this.subscription = this._svc.getSamples()
+      .subscribe(
+      samples => {
+        this.dnasamples = samples;
+      },
+      error => this.errorMessage = <any>error);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

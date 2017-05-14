@@ -15,12 +15,14 @@ import { AppComponent } from './components/application/app.component';
 import { Sample_Services } from './services/services';
 import { HomeComponent } from './components/home/home.component';
 import { SampleComponent } from './components/sample/sample.component';
+import { FilterPipe } from './components/sample/sample-filter-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SampleComponent
+    SampleComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

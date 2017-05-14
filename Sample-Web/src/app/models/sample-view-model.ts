@@ -1,7 +1,7 @@
 export class SampleViewModel {
-    ID: number;
-    Barcode: string;
-    CreatedAt: string;
+    id: number;
+    barcode: string;
+    createdAt: string;
     createdByUser: string;
-    labstatus: string; 
+    labStatus: string; 
 }

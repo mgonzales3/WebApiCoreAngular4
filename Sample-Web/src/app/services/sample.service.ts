@@ -9,7 +9,7 @@ import { SampleViewModel } from '../models/sample-view-model';
 
 @Injectable()
 export class SampleService {
-  private url:string = 'http://localhost:1234/api/'
+  private url:string = 'http://localhost:60426/api/'
 
   constructor(private http: Http) { }
 

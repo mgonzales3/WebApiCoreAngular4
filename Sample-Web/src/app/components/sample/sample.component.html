@@ -4,10 +4,40 @@
 		{{ pageTitle }}
 	</div>
 
-	<div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
-
 	<div class="panel-body">
-		<div class="row">
+		<div class='row'>
+			<div class='col-md-2'>Client-Side Filter(Status):</div>
+			<div class='col-md-2'>
+				<input type='text' [(ngModel)]='listFilter' />
+			</div>
+		</div>
+
+		<div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+		<div class='table-responsive'>
+			<table class='table' *ngIf='dnasamples && dnasamples.length'>
+				<thead>
+					<tr>
+						<th>Sample</th>
+						<th>Barcode</th>
+						<th>Create Date</th>
+						<th>Created By</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr *ngFor="let sample of dnasamples | filter:{labstatus: listFilter};">
+						<td> <a [routerLink]="['/sample', sample.ID]">
+                            {{ sample.id }}
+                            </a>
+						</td>
+						<td>{{ sample.barcode }}</td>
+						<td>{{ sample.createdAt | date }}</td>
+						<td>{{ sample.createdByUser }}</td>
+						<td>{{ sample.labstatus }}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
