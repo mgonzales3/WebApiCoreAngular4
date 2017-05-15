@@ -1,0 +1,59 @@
+<div style="padding-top: 70px"></div>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		{{ pageTitle }}
+	</div>
+
+	<div class="panel-body">
+		<div class='row'>
+			<div class='col-md-2'>Service Filter:</div>
+			<form novalidate (submit)="onSubmit(form)" #form="ngForm">
+				<div class="col-xs-2">
+					<div class="form-group">
+						<select name="searchBy" class="form-control" [(ngModel)]="searchBy">
+							<option *ngFor="let o of selectOptions">
+								{{ o }}
+							</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-xs-2">
+					<div class="form-group">
+						<input type="text" class="form-control" name="webapiFilter" [(ngModel)]="webapiFilter">
+					</div>
+				</div>
+				<div class="col-xs-2">
+					<button class="btn btn-primary" type="submit" [disabled]="form.pristine">Search</button>					
+				</div>
+			</form>
+		</div>
+
+		<div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+		<div class='table-responsive'>
+			<table class='table' *ngIf='dnasamples && dnasamples.length'>
+				<thead>
+					<tr>
+						<th>Sample</th>
+						<th>Barcode</th>
+						<th>Create Date</th>
+						<th>Created By</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr *ngFor="let sample of dnasamples | filter:{labstatus: listFilter};">
+						<td> <a [routerLink]="['/sample', sample.ID]">
+                            {{ sample.id }}
+                            </a>
+						</td>
+						<td>{{ sample.barcode }}</td>
+						<td>{{ sample.createdAt | date }}</td>
+						<td>{{ sample.createdByUser }}</td>
+						<td>{{ sample.labstatus }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

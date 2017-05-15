@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
-
 // app framework
 import { routes, routingProviders } from './app.routing';
 import { AppComponent } from './components/application/app.component';
@@ -16,13 +15,17 @@ import { Sample_Services } from './services/services';
 import { HomeComponent } from './components/home/home.component';
 import { SampleComponent } from './components/sample/sample.component';
 import { FilterPipe } from './components/sample/sample-filter-pipe.pipe';
+import { SamplelistComponent } from './components/samplelist/samplelist.component';
+import { SampleinsertComponent } from './components/sampleinsert/sampleinsert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SampleComponent,
-    FilterPipe
+    FilterPipe,
+    SamplelistComponent,
+    SampleinsertComponent
   ],
   imports: [
     BrowserModule,
